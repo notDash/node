@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  hr
+  div(class="content")
+    div
+      p 当前路径为  /usr/local/lsy/nodejsproj/..
+    div
+      h3 请选择分支:
+        select
+          option 请选择
+          option app
+          option h5
+          option opapp
+          option oppc
+      h3 请输入目录:
+        input(placeholder="请输入目录")
+
+    div
+      button(id="submit",name="submit",value="提交") 提交
+
+
+  script(src="/javascripts/index.js")

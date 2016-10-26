@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  hr
+  div
+    
+  h3 彩票查询结果:
+
+  ul
+    for item in data.data
+      li(style="list-style:none;background-color:#ccc;margin-bottom:20px;")
+        span 开奖日期：#{item.expect} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 开奖号码：#{item.opencode}
+
+  script(src="/javascripts/caipiao.js")
+
