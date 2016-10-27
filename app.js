@@ -9,12 +9,13 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var reactDatas = require('./routes/reactDatas');
 var caipiao = require('./routes/caipiao');
+var learnStack = require('./routes/learnStack');
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('views', path.join(__dirname, 'views')); // 设置模板相对路径
+app.set('view engine', 'jade');  //设置模板引擎
 
 // 设置跨域
 app.all('*', function(req, res, next) {
@@ -37,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/caipiao', caipiao);
+app.use('/learnStack', learnStack);
 
 app.use('/api/comments', reactDatas);
 
