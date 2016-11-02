@@ -2,6 +2,14 @@ var express = require('express');
 var router = express.Router();
 
 
+/*node子程序 执行命令*/
+var child_process = require('child_process');
+var iconv = require('iconv-lite');
+var encoding = 'cp936';
+var binaryEncoding = 'binary';
+/*node子程序 执行命令*/
+
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -24,6 +32,12 @@ router.get('/', function(req, res, next) {
       }
     });
 */
+
+child_process.exec('svn log', { encoding: binaryEncoding }, function(err, stdout, stderr){
+    console.log(iconv.decode(new Buffer(stdout, binaryEncoding), encoding), iconv.decode(new Buffer(stderr, binaryEncoding), encoding));
+});
+
+
   res.render('index', { title: '页面构建平台' });
 });
 
